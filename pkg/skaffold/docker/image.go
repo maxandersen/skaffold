@@ -482,3 +482,8 @@ func (l *localDaemon) Prune(ctx context.Context, out io.Writer, images []string,
 
 	return nil
 }
+
+func makeFqn(ctx context.Context, tag string, digest string) string {
+	fmt.Printf("MAKEFQN!")
+	return tag + "@" + digest
+}

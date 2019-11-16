@@ -169,7 +169,7 @@ watch:
 	}
 	logrus.Infof("Deleted object %s", buildObject)
 
-	return tag + "@" + digest, nil
+	return docker.MakeFqn(ctx, tag, digest), nil
 }
 
 func getBuildID(op *cloudbuild.Operation) (string, error) {

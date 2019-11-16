@@ -63,7 +63,7 @@ func (b *Builder) buildArtifact(ctx context.Context, out io.Writer, artifact *la
 			}
 		}
 		digest := digestOrImageID
-		return tag + "@" + digest, nil
+		return docker.MakeFqn(ctx, tag, digest), nil
 	}
 
 	imageID := digestOrImageID

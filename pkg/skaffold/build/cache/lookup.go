@@ -102,7 +102,7 @@ func (c *cache) lookupRemote(ctx context.Context, hash, tag string, entry ImageD
 	}
 
 	// Image exists remotely with a different tag
-	fqn := tag + "@" + entry.Digest // Actual tag will be ignored but we need the registry and the digest part of it.
+	fqn := docker.MakeFqn(ctx, tag, entry.Digest) // Actual tag will be ignored but we need the registry and the digest part of it.
 	if remoteDigest, err := docker.RemoteDigest(fqn, c.insecureRegistries); err == nil {
 		if remoteDigest == entry.Digest {
 			return needsRemoteTagging{hash: hash, tag: tag, digest: entry.Digest}

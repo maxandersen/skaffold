@@ -30,6 +30,7 @@ var (
 	getInsecureRegistryImpl = getInsecureRegistry
 	getRemoteImageImpl      = getRemoteImage
 	RemoteDigest            = getRemoteDigest
+	MakeFqn                 = makeFqn
 )
 
 func AddRemoteTag(src, target string, insecureRegistries map[string]bool) error {

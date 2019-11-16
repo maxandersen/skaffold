@@ -108,7 +108,7 @@ func (c *cache) Build(ctx context.Context, out io.Writer, tags tag.ImageTags, ar
 				return nil, err
 			}
 		} else {
-			uniqueTag = tag + "@" + entry.Digest
+			uniqueTag = docker.MakeFqn(ctx, tag, entry.Digest)
 		}
 
 		alreadyBuilt = append(alreadyBuilt, build.Artifact{

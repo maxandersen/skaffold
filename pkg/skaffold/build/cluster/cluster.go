@@ -91,5 +91,5 @@ func (b *Builder) buildArtifactWithKaniko(ctx context.Context, out io.Writer, ar
 		return "", errors.Wrapf(err, "kaniko build for [%s]", artifact.ImageName)
 	}
 
-	return tag + "@" + digest, nil
+	return docker.MakeFqn(ctx, tag, digest), nil
 }
